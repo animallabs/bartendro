@@ -9,7 +9,7 @@ If you're installing into raspian then you can get all the dependencies in one g
 apt-get install nginx uwsgi uwsgi-plugin-python
 apt-get install python-werkzeug python-jinja2 python-setuptools \
         python-wtforms python-serial python-smbus python-sqlite python-sqlalchemy \
-        memcached python-memcache python-rpi.gpio python-flask sqlite3 
+        memcached python-memcache python-rpi.gpio python-flask sqlite3
 
 If you'd like to have python dependencies installed with pip:
 
@@ -44,7 +44,7 @@ Then, once you're ready, run:
 
    # sudo ./bartendro_server --debug
 
-That should start the server on all interfaces on your machine. Bartendro's WiFi address is 
+That should start the server on all interfaces on your machine. Bartendro's WiFi address is
 always 10.0.0.1 and the wired ethernet ip address is assigned by DHCP. To see the addresses
 for Bartendro, see the Network Info box on the options page.
 
@@ -61,3 +61,20 @@ and fail. In the software only mode the bartendro UI will run an attempt to do e
 it can, short of actually communicating with the hardware. If you are running in
 software only mode, you do no need to run the bartendro_server.py program under sudo. Sudo
 rights are only needed to communicate with the hardware.
+
+
+local development install - virtualenv stuff may differ based on operating system
+# create a virtualenv
+`virtualenv ~/bartendro -p /usr/bin/python`
+
+# set the system env to software mode only
+`export BARTENDRO_SOFTWARE_ONLY=1`
+
+# login to your virtualenv
+`source ~/bartendro /usr/bin/python`
+
+# install  the requirements with pip
+`pip install -r requirements.txt`
+
+# boot up the local server
+`python bartendro_server.py -t localhost -h 8001`
