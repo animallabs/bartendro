@@ -77,4 +77,4 @@ local development install - virtualenv stuff may differ based on operating syste
 `pip install -r requirements.txt`
 
 # boot up the local server
-`python bartendro_server.py -t localhost -h 8001`
+`python bartendro_server.py -t localhost -p 8001`
