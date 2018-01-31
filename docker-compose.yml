@@ -8,4 +8,4 @@ services:
       - "9003:9003"
      env_file:
         - .env
-     command: "python bartendro_server.py -p 9003 --debug"
+     command: "python bartendro_server.py -p 9003 -t 0.0.0.0 --debug"
