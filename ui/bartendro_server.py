@@ -24,21 +24,8 @@ LEGACY_SERIAL_DEVICE = "/dev/ttyAMA0"
 
 def determine_serial_device():
 
-    try:
-        f = open("/proc/cpuinfo", "r")
-    except IOError:
-        return DEFAULT_SERIAL_DEVICE
 
-    for line in f.readlines():
-        if line.startswith("Revision"):
-            line = line.strip()
-	    ver = line[11:]
-            if ver in RPI_CPU_IDS_FOR_TTYAMA0:
-                f.close()
-                return LEGACY_SERIAL_DEVICE
-
-    f.close()
-    return DEFAULT_SERIAL_DEVICE
+    return LEGACY_SERIAL_DEVICE
 
 
 
