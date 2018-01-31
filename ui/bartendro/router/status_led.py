@@ -25,7 +25,7 @@ class StatusLED(object):
         if self.software_only: return
 
         if gpio_missing:
-            loglogerror("You must install the RPi.GPIO module")
+            # loglogerror("You must install the RPi.GPIO module")
             sys.exit(-1)
 
         # select the method by which we want to identify GPIO pins
