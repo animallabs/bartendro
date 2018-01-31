@@ -8,8 +8,12 @@ RUN apt-get -y install python-pip
 RUN apt-get -y install git
 
 
-RUN git clone https://github.com/animallabs/bartendro.git
-RUN pip install -r bartendro/ui/requirements.txt
+ADD ./ui/requirements.txt /ui/
+RUN pip install -r ui/requirements.txt
+ADD ./ui /ui/
+COPY ./ui/bartendro.db.default /ui/bartendro.db
+
+
 
 
 

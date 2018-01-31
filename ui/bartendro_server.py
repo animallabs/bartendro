@@ -40,15 +40,6 @@ def determine_serial_device():
     return DEFAULT_SERIAL_DEVICE
 
 
-if os.path.exists("version.txt"):
-    with open("version.txt", "r") as f:
-        version = f.read()
-else:
-    version = subprocess.check_output(["git", "rev-parse", "HEAD"])
-    if version:
-        version = "git commit " + version[:10]
-    else:
-        version = "[unknown]"
 
 LOG_SIZE = 1024 * 500  # 500k maximum log file size
 LOG_FILES_SAVED = 3    # number of log files to compress and save
@@ -160,7 +151,7 @@ else:
 
     logging.info("Bartendro started")
     app.debug = args.debug
-    app.version = version
+    app.version = 1
 
 if __name__ == '__main__':
     app.run(host=args.host, port=args.port)

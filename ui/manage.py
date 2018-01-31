@@ -1,8 +1,10 @@
 #!/usr/bin/env python
 from werkzeug import script
+import os
 
 def make_app():
     from bartendro.application import BartendroUIServer
+    print "is file0000-------------->", os.path.isfile('bartendro.db')
     return BartendroUIServer('sqlite:///bartendro.db')
 
 def make_shell():
