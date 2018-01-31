@@ -1,0 +1,11 @@
+version: '2'
+
+services:
+    app:
+     build: ui/.
+     privileged: true
+     ports:
+      - "8001:8001"
+     env_file:
+        - .env
+     command: "python bartendro/ui/bartendro_server.py --debug"
