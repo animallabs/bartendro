@@ -9,6 +9,7 @@ import sys
 import argparse
 import subprocess
 import traceback
+import os
 
 from bartendro.global_lock import BartendroGlobalLock
 from bartendro.router import driver
@@ -88,7 +89,10 @@ try:
 except KeyError:
     app.software_only = 0
 
-if not os.path.exists("bartendro.db"):
+if not os.path.exists("./bartendro.db"):
+    path = '.'
+    files = os.listdir(path)
+    print files
     print "bartendro.db file not found. Please copy bartendro.db.default to "
     print "bartendro.db in order to provide Bartendro with a starting database."
     sys.exit(-1)
@@ -104,6 +108,7 @@ device = determine_serial_device()
 
 startup_err = ""
 # Start the driver, which talks to the hardware
+print "running the server!"
 try:
     app.driver = driver.RouterDriver(device, app.software_only);
     app.driver.open()

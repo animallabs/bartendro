@@ -12,7 +12,7 @@ ADD ./ui/requirements.txt /ui/
 RUN pip install -r ui/requirements.txt
 ADD ./ui /ui/
 COPY ./ui/bartendro.db.default /ui/bartendro.db
-
+WORKDIR /ui/
 
 
 
