@@ -444,6 +444,9 @@ class RouterDriver(object):
 
     def _send_packet(self, dest, packet):
         if self.software_only: return True
+        print "sendpacket------> types"
+        print "dest--------->", dest, type(dest)
+        print "packet------->", packet, type(packet)
 
         self._select(dest);
         self.ser.flushInput()
