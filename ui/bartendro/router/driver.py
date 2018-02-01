@@ -522,21 +522,35 @@ class RouterDriver(object):
         else:
             return dest
 
-    def _send_packet8(self, dest, type, val0, val1=0, val2=0, val3=0):
+    def _send_packet8(self, dest, in_type, val0, val1=0, val2=0, val3=0):
+        print "send packet 8 type checking --------------------------------------->"
+        print "dest type", type(dest), dest
+        print "in type", type(in_type), in_type
+        print "val0", type(val0), val0
         dispenser_id = self._get_dispenser_id(dest)
         if dispenser_id < 0:
             return False
 
-        return self._send_packet(dest, pack("BBBBBB", dispenser_id, type, val0, val1, val2, val3))
+        return self._send_packet(dest, pack("BBBBBB", dispenser_id, in_type, val0, val1, val2, val3))
 
-    def _send_packet16(self, dest, type, val0, val1):
+    def _send_packet16(self, dest, in_type, val0, val1):
+        print "send packet 16 type checking --------------------------------------->"
+        print "dest type", type(dest), dest
+        print "in type", type(in_type), in_type
+        print "val0", type(val0), val0
+        print "val1", type(val1), val1
+
         dispenser_id = self._get_dispenser_id(dest)
         if dispenser_id < 0:
             return False
 
         return self._send_packet(dest, pack("<BBHH", dispenser_id, type, val0, val1))
 
-    def _send_packet32(self, dest, type, val):
+    def _send_packet32(self, dest, in_type, val):
+        print "send packet 32 type checking --------------------------------------->"
+        print "dest type", type(dest), dest
+        print "in type", type(in_type), in_type
+        print "val0", type(val), val
         dispenser_id = self._get_dispenser_id(dest)
         if dispenser_id < 0:
             return False
