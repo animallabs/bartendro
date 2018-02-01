@@ -531,6 +531,10 @@ class RouterDriver(object):
         print "dispenser_id type", type(dispenser_id), dispenser_id
         if dispenser_id < 0:
             return False
+        print "about to send that packet"
+        print "send packet dest", type(dest), dest
+        print "send packet packed up", type(pack("BBBBBB", dispenser_id, in_type, val0, val1, val2, val3)), pack("BBBBBB", dispenser_id, in_type, val0, val1, val2, val3)
+
 
         return self._send_packet(dest, pack("BBBBBB", dispenser_id, in_type, val0, val1, val2, val3))
 
