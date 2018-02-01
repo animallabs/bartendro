@@ -173,6 +173,7 @@ class RouterDriver(object):
                 data = self.ser.read(3)
                 ll = ""
                 for ch in data:
+                    print "CHAR IN DATA LOOP------------------------------>", ch, ord(ch)
                     ll += "%02X " % ord(ch)
                 if len(data) == 3: 
                     if data[0] != data[1] or data[0] != data[2]:
