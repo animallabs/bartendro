@@ -528,6 +528,7 @@ class RouterDriver(object):
         print "in type", type(in_type), in_type
         print "val0", type(val0), val0
         dispenser_id = self._get_dispenser_id(dest)
+        print "dispenser_id type", type(dispenser_id), dispenser_id
         if dispenser_id < 0:
             return False
 
