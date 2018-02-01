@@ -544,7 +544,7 @@ class RouterDriver(object):
         if dispenser_id < 0:
             return False
 
-        return self._send_packet(dest, pack("<BBHH", dispenser_id, type, val0, val1))
+        return self._send_packet(dest, pack("<BBHH", dispenser_id, in_type, val0, val1))
 
     def _send_packet32(self, dest, in_type, val):
         print "send packet 32 type checking --------------------------------------->"
