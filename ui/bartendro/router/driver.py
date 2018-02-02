@@ -454,6 +454,7 @@ class RouterDriver(object):
 
         crc = 0
         for ch in packet:
+            print "show me this packet", ch
             crc = crc16_update(crc, ord(ch))
 
         encoded = pack7.pack_7bit(packet + pack("<H", crc))
@@ -464,6 +465,7 @@ class RouterDriver(object):
         try:
             t0 = time()
             written = self.ser.write(chr(0xFF) + chr(0xFF) + encoded)
+            print "WRITTEN", written, type(written)
             if written != RAW_PACKET_SIZE + 2:
                 log.error("*** send timeout")
                 log.error("*** dispenser: %d, type: %d" % (dest + 1, ord(packet[1:2])))
